@@ -3,7 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>For My Valentine ❤️</title>
+    <title>My Valentine ❤️</title>
+
+    <!-- iPhone App Settings -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="My Valentine ❤️" />
 
     <style>
       body {
@@ -17,7 +25,7 @@
       .background {
         position: fixed;
         inset: 0;
-        background-image: url("Carlos + Karina-127.jpeg");
+        background-image: url("Carlos + Karina-127.jpeg"); /* your image file */
         background-size: cover;
         background-position: center;
         filter: brightness(0.6);
@@ -36,7 +44,7 @@
         text-shadow: 1px 1px 8px black;
       }
 
-      button {
+      .main-button {
         margin-top: 20px;
         padding: 12px 22px;
         border: none;
@@ -45,6 +53,18 @@
         background-color: #ff4d6d;
         color: white;
         cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      .spotify-button {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 22px;
+        border-radius: 25px;
+        background-color: #1db954;
+        color: white;
+        font-size: 16px;
+        text-decoration: none;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       }
 
@@ -126,7 +146,14 @@
         Carlos
       </p>
 
-      <button onclick="playSpotify()">Our Song 🎶</button>
+      <!-- Spotify link (WORKS FROM HOME SCREEN APP) -->
+      <a
+        class="spotify-button"
+        href="https://open.spotify.com/track/10Z9RbwrTbQ0gQeNRJ2dC1?si=94afa240288f41da"
+        target="_blank"
+      >
+        Our Song 🎶
+      </a>
     </div>
 
     <script>
