@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For My Valentine ❤️</title>
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: white;
+      }
+
+      .background {
+        position: fixed;
+        inset: 0;
+        background-image: url("Carlos + Karina-127.jpeg");
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.6);
+        z-index: -1;
+      }
+
+      h1 {
+        margin-top: 35vh;
+        font-size: 30px;
+        text-shadow: 2px 2px 10px black;
+      }
+
+      p {
+        font-size: 18px;
+        padding: 0 20px;
+        text-shadow: 1px 1px 8px black;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 12px 22px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        background-color: #ff4d6d;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      .balloon,
+      .rose {
+        position: absolute;
+        font-size: 28px;
+        pointer-events: none;
+      }
+
+      @keyframes floatUp {
+        from {
+          transform: translateY(100vh);
+        }
+        to {
+          transform: translateY(-10vh);
+        }
+      }
+
+      @keyframes fallDown {
+        from {
+          transform: translateY(-10vh);
+        }
+        to {
+          transform: translateY(100vh);
+        }
+      }
+
+      .final-screen {
+        display: none;
+        position: absolute;
+        top: 28%;
+        width: 100%;
+      }
+
+      /* Confetti */
+      .confetti {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 2px;
+        animation: confettiFall 3s linear forwards;
+      }
+
+      @keyframes confettiFall {
+        from {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        to {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0.9;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="background"></div>
+
+    <h1>Happy Valentine’s Day Karina ❤️</h1>
+
+    <p>
+      You are my best friend, my peace, my home.<br />
+      Every season of life feels better with you beside me.
+    </p>
+
+    <button onclick="showSurprise()">Tap Me 💌</button>
+
+    <div class="final-screen" id="finalMessage">
+      <h1>I Choose You. Every Time. ❤️</h1>
+      <p>
+        Through every high and every hard season,<br />
+        we’ve chosen each other.<br /><br />
+        I’m so proud of you.<br />
+        And I know your mom is smiling seeing the woman you continue to become.
+        🌹<br /><br />
+        Forever yours,<br />
+        Carlos
+      </p>
+
+      <button onclick="playSpotify()">Our Song 🎶</button>
+    </div>
+
+    <script>
+      /* Floating balloons */
+      function createBalloon() {
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.textContent = "🎈";
+        balloon.style.left = Math.random() * 100 + "vw";
+        balloon.style.animation = "floatUp 9s linear";
+        document.body.appendChild(balloon);
+        setTimeout(() => balloon.remove(), 9000);
+      }
+
+      /* Falling roses */
+      function createRose() {
+        const rose = document.createElement("div");
+        rose.className = "rose";
+        rose.textContent = "🌹";
+        rose.style.left = Math.random() * 100 + "vw";
+        rose.style.animation = "fallDown 11s linear";
+        document.body.appendChild(rose);
+        setTimeout(() => rose.remove(), 11000);
+      }
+
+      setInterval(createBalloon, 1000);
+      setInterval(createRose, 1400);
+
+      /* Confetti explosion */
+      function explodeConfetti() {
+        const colors = ["#ff4d6d", "#ffd1dc", "#ffffff", "#ffd700"];
+        for (let i = 0; i < 150; i++) {
+          const confetti = document.createElement("div");
+          confetti.className = "confetti";
+          confetti.style.left = Math.random() * 100 + "vw";
+          confetti.style.top = "20vh";
+          confetti.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.animationDuration = 2 + Math.random() * 2 + "s";
+          document.body.appendChild(confetti);
+          setTimeout(() => confetti.remove(), 3500);
+        }
+      }
+
+      /* Reveal final screen */
+      function showSurprise() {
+        explodeConfetti();
+        document.querySelector("h1").style.display = "none";
+        document.querySelector("p").style.display = "none";
+        document.querySelector("button").style.display = "none";
+        document.getElementById("finalMessage").style.display = "block";
+      }
+
+      /* Spotify link */
+      function playSpotify() {
+        window.open(
+          "https://open.spotify.com/track/10Z9RbwrTbQ0gQeNRJ2dC1?si=eec26e3761ac4c30",
+          "_blank"
+        );
+      }
+    </script>
+  </body>
+</html>
