@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Valentine ❤️</title>
 
+    <!-- iPhone Home Screen App -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="apple-mobile-web-app-title" content="My Valentine ❤️" />
 
     <style>
       body {
@@ -19,7 +25,7 @@
       .background {
         position: fixed;
         inset: 0;
-        background-image: url("Carlos + Karina-127.jpeg");
+        background-image: url("Carlos + Karina-127.jpeg"); /* local image */
         background-size: cover;
         background-position: center;
         filter: brightness(0.6);
@@ -27,18 +33,28 @@
       }
 
       h1 {
-        margin-top: 35vh;
         font-size: 30px;
         text-shadow: 2px 2px 10px black;
+        margin-bottom: 10px;
       }
 
       p {
         font-size: 18px;
-        padding: 0 20px;
+        line-height: 1.6;
         text-shadow: 1px 1px 8px black;
+        margin: 0;
       }
 
-      button {
+      /* Start screen */
+      #startScreen {
+        position: absolute;
+        top: 38%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+      }
+
+      .main-button {
         margin-top: 20px;
         padding: 12px 22px;
         border: none;
@@ -50,9 +66,28 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       }
 
+      /* Final screen — raised & centered for iPhone 13 Pro */
+      #finalMessage {
+        display: none;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+      }
+
+      .love-letter {
+        max-height: 45vh;
+        overflow-y: auto;
+        margin: 15px 0;
+        padding: 15px;
+        background: rgba(0, 0, 0, 0.35);
+        border-radius: 15px;
+      }
+
       .spotify-button {
         display: inline-block;
-        margin-top: 25px;
+        margin-top: 20px;
         padding: 12px 22px;
         border-radius: 25px;
         background-color: #1db954;
@@ -62,6 +97,7 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       }
 
+      /* Floating elements */
       .balloon,
       .rose {
         position: absolute;
@@ -86,33 +122,45 @@
           transform: translateY(100vh);
         }
       }
-
-      #finalMessage {
-        display: none;
-        position: absolute;
-        top: 28%;
-        width: 100%;
-      }
     </style>
   </head>
 
   <body>
     <div class="background"></div>
 
+    <!-- Start Screen -->
     <div id="startScreen">
       <h1>Happy Valentine’s Day Karina ❤️</h1>
-      <p>You are my best friend, my peace, my home.</p>
-      <button id="tapBtn">Tap Me 💌</button>
+      <p>You are my calm when life feels heavy.</p>
+      <button class="main-button" id="tapBtn">Tap Me 💌</button>
     </div>
 
+    <!-- Final Screen -->
     <div id="finalMessage">
       <h1>I Choose You. Every Time. ❤️</h1>
-      <p>
-        Through every high and every hard season,<br />
-        we’ve chosen each other.<br /><br />
-        Forever yours,<br />
-        Carlos
-      </p>
+
+      <div class="love-letter">
+        <p>
+          My love,<br /><br />
+
+          You’ve been my calm when life feels heavy and my steady when I don’t
+          have the answers. Being with you has changed how I move through the
+          world. You make things feel grounded. Safe. Real.<br /><br />
+
+          We’ve been through a lot together. Some of it beautiful. Some of it
+          hard. All of it made us stronger. And through every season, we kept
+          choosing each other. That matters more to me than anything.<br /><br />
+
+          I’m so proud of the woman you are. Your heart, your strength, the way
+          you love. I know your mom is watching over you with so much pride for
+          how strong you have been. I promise to always protect your heart and
+          love you the way you deserve.<br /><br />
+
+          No matter what life throws at us, I’m with you. Always.<br /><br />
+
+          — Carlos
+        </p>
+      </div>
 
       <a
         class="spotify-button"
